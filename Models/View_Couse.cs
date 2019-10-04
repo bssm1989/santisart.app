@@ -27,7 +27,7 @@ namespace santisart_app.Models
         public string CourseType { get; set; }
         public Nullable<int> CourseStatus { get; set; }
         public int EnrollStudentCouseId { get; set; }
-        public Nullable<double> Score { get; set; }
+        public Nullable<double> Score1 { get; set; }
         public Nullable<double> Grade { get; set; }
         public Nullable<System.DateTime> Timestamp { get; set; }
         public Nullable<int> YearEdu { get; set; }

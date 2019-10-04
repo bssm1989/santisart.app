@@ -12,7 +12,7 @@ namespace santisart_app.Controllers
 {
     public class EnrollStudentCousesController : Controller
     {
-        private santisar_Entities db = new santisar_Entities();
+        private santisartEntities2 db = new santisartEntities2();
 
         // GET: EnrollStudentCouses
         public ActionResult IndexById(int? id)
@@ -23,6 +23,7 @@ namespace santisart_app.Controllers
             ViewBag.studentCouse = enrollStudentCouse.ToList();
             return View(enrollStudentCouse.ToList());
         }
+
        public ActionResult EditListScoreByCouse(int? id)
         {
 
@@ -100,7 +101,7 @@ db.SaveChanges();
         // GET: EnrollStudentCouses/Create
         public ActionResult Create()
         {
-            ViewBag.TeacerId = new SelectList(db.Enroll_Emp_Pos, "EnrEmpPosId", "EnrEmpPosId");
+            ViewBag.TeacerId = new SelectList(db.Enroll_Emp_Po, "EnrEmpPosId", "EnrEmpPosId");
             ViewBag.EnrollCouseId = new SelectList(db.EnrollCouse, "EnrollCouseID", "CouseTxtId");
             ViewBag.studentId = new SelectList(db.Students, "Student_id", "Student_title");
             return View();
@@ -120,7 +121,7 @@ db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.TeacerId = new SelectList(db.Enroll_Emp_Pos, "EnrEmpPosId", "EnrEmpPosId", enrollStudentCouse.TeacerId);
+            ViewBag.TeacerId = new SelectList(db.Enroll_Emp_Po, "EnrEmpPosId", "EnrEmpPosId", enrollStudentCouse.TeacerId);
             ViewBag.EnrollCouseId = new SelectList(db.EnrollCouse, "EnrollCouseID", "CouseTxtId", enrollStudentCouse.EnrollCouseId);
             ViewBag.studentId = new SelectList(db.Students, "Student_id", "Student_title", enrollStudentCouse.studentId);
             return View(enrollStudentCouse);
@@ -138,7 +139,7 @@ db.SaveChanges();
             {
                 return HttpNotFound();
             }
-            ViewBag.TeacerId = new SelectList(db.Enroll_Emp_Pos, "EnrEmpPosId", "EnrEmpPosId", enrollStudentCouse.TeacerId);
+            ViewBag.TeacerId = new SelectList(db.Enroll_Emp_Po, "EnrEmpPosId", "EnrEmpPosId", enrollStudentCouse.TeacerId);
             ViewBag.EnrollCouseId = new SelectList(db.EnrollCouse, "EnrollCouseID", "CouseTxtId", enrollStudentCouse.EnrollCouseId);
             ViewBag.studentId = new SelectList(db.Students, "Student_id", "Student_title", enrollStudentCouse.studentId);
             return View(enrollStudentCouse);
@@ -157,7 +158,7 @@ db.SaveChanges();
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.TeacerId = new SelectList(db.Enroll_Emp_Pos, "EnrEmpPosId", "EnrEmpPosId", enrollStudentCouse.TeacerId);
+            ViewBag.TeacerId = new SelectList(db.Enroll_Emp_Po, "EnrEmpPosId", "EnrEmpPosId", enrollStudentCouse.TeacerId);
             ViewBag.EnrollCouseId = new SelectList(db.EnrollCouse, "EnrollCouseID", "CouseTxtId", enrollStudentCouse.EnrollCouseId);
             ViewBag.studentId = new SelectList(db.Students, "Student_id", "Student_title", enrollStudentCouse.studentId);
             return View(enrollStudentCouse);

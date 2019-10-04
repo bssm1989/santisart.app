@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -6,20 +7,51 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Script.Serialization;
+using Newtonsoft.Json;
 using santisart_app.Models;
 
 namespace santisart_app.Controllers
 {
     public class EmployeesController : Controller
     {
-        private santisar_Entities db = new santisar_Entities();
+        private santisartEntities2 db = new santisartEntities2();
 
         // GET: Employees
         public ActionResult Index()
         {
             return View(db.Employee.ToList());
         }
+        public JsonResult IndexListJson()
+        {
+            List<Employee> empList = new List<Employee>() ;
+            List<Employee> res = db.Employee.ToList();
+            foreach (var item in res)
+            {
+                empList.Add(new Employee
+                {
+                    EmpTitle = item.EmpTitle,
+                    EmpName =item.EmpName,
+                    EmpLname=item.EmpLname,
+                    EmpBirthday = item.EmpBirthday,
 
+                    EmpIdcard = item.EmpIdcard,
+                    EmpPsis_id = item.EmpPsis_id,
+                    EmpStatus = item.EmpStatus,
+                    EmpTimestamp = item.EmpTimestamp,
+                    EmpTelephone = item.EmpTelephone,
+                    Empbank_id = item.Empbank_id,
+
+                    EmpId = item.EmpId,
+                    EmpGender = item.EmpGender,
+                    Password = item.Password,
+                    UserName = item.UserName
+                });
+            }
+            string output = JsonConvert.SerializeObject(empList);
+            return Json(empList, JsonRequestBehavior.AllowGet);
+
+        }
         // GET: Employees/Details/5
         public ActionResult Details(int? id)
         {

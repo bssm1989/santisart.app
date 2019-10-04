@@ -307,47 +307,6 @@
         <member name="M:Spire.Xls.Core.Converter.Exporting.EMF.BidiOrder.ValidateLineBreaks(System.Int32[],System.Int32)">
             Throw exception if line breaks array is invalid.
         </member>
-        <member name="T:Spire.Xls.Core.Converter.Exporting.EMF.ConverterSetting">
-            <summary>
-            Convert Setting
-            </summary>
-        </member>
-        <member name="P:Spire.Xls.Core.Converter.Exporting.EMF.ConverterSetting.PrintPageEventHandler">
-            <summary>
-            Print each page using this EventHandler
-            </summary>  
-        </member>
-        <member name="P:Spire.Xls.Core.Converter.Exporting.EMF.ConverterSetting.XDpi">
-            <summary>
-            Gets or sets the horizontal resolution, in dots per inch (DPI). Default value is 96.
-            </summary>
-        </member>
-        <member name="P:Spire.Xls.Core.Converter.Exporting.EMF.ConverterSetting.YDpi">
-            <summary>
-            Gets or sets the vertical resolution, in dots per inch (DPI). Default value is 96.
-            </summary>
-        </member>
-        <member name="P:Spire.Xls.Core.Converter.Exporting.EMF.ConverterSetting.JPEGQuality">
-            <summary>
-            Gets or sets a value determining the quality.
-            </summary>
-        </member>
-        <member name="P:Spire.Xls.Core.Converter.Exporting.EMF.ConverterSetting.SheetFitToPage">
-            <summary>
-            One sheet context render to only one page. 
-            </summary>
-        </member>
-        <member name="P:Spire.Xls.Core.Converter.Exporting.EMF.ConverterSetting.ChartImageType">
-            
-             <summary>
-             Indicate the chart render image type.
-             </summary>
-        </member>
-        <member name="P:Spire.Xls.Core.Converter.Exporting.EMF.ConverterSetting.IsRegionClip">
-            <summary>
-            Enables or disables clipping the image to the region
-            </summary>
-        </member>
         <member name="M:Spire.Xls.Core.Converter.Exporting.EMF.VisualRender.AddDocumentProperties(Spire.Xls.Core.Converter.Spreadsheet.DocumentProperties.BuiltInDocumentPropertyCollection)">
             <summary>
             Adds the document properties.
@@ -10729,6 +10688,47 @@
             <param name="objectName">Unique Identifier of object whose value changed.</param>
             <param name="next">Next property which must be changed.</param>
         </member>
+        <member name="T:Spire.Xls.ConverterSetting">
+            <summary>
+            Convert Setting
+            </summary>
+        </member>
+        <member name="P:Spire.Xls.ConverterSetting.PrintPageEventHandler">
+            <summary>
+            Print each page using this EventHandler
+            </summary>  
+        </member>
+        <member name="P:Spire.Xls.ConverterSetting.XDpi">
+            <summary>
+            Gets or sets the horizontal resolution, in dots per inch (DPI). Default value is 96.
+            </summary>
+        </member>
+        <member name="P:Spire.Xls.ConverterSetting.YDpi">
+            <summary>
+            Gets or sets the vertical resolution, in dots per inch (DPI). Default value is 96.
+            </summary>
+        </member>
+        <member name="P:Spire.Xls.ConverterSetting.JPEGQuality">
+            <summary>
+            Gets or sets a value determining the quality.
+            </summary>
+        </member>
+        <member name="P:Spire.Xls.ConverterSetting.SheetFitToPage">
+            <summary>
+            One sheet context render to only one page. 
+            </summary>
+        </member>
+        <member name="P:Spire.Xls.ConverterSetting.ChartImageType">
+            
+             <summary>
+             Indicate the chart render image type.
+             </summary>
+        </member>
+        <member name="P:Spire.Xls.ConverterSetting.IsRegionClip">
+            <summary>
+            Enables or disables clipping the image to the region
+            </summary>
+        </member>
         <member name="T:Spire.Xls.ExcelSheetType">
             <summary>
             Sheet types.
@@ -20546,6 +20546,13 @@
             also upprotect workbook window and structure
             </summary>
         </member>
+        <member name="M:Spire.Xls.Workbook.UnProtect(System.String)">
+            <summary>
+            unprotect file
+            also upprotect workbook window and structure
+            </summary>
+            <param name="bookWindowAndStructurePassword">password for protect workbook window and structure</param>
+        </member>
         <member name="M:Spire.Xls.Workbook.GetPaletteColor(Spire.Xls.ExcelColors)">
             <summary>
             Gets excel color from workbook palette.
@@ -20747,6 +20754,15 @@
             <summary>
             Get Spire.Doc free version limit information.
             </summary>
+        </member>
+        <member name="M:Spire.Xls.Worksheet.FindAll(System.String,Spire.Xls.FindType,Spire.Xls.ExcelFindOptions)">
+            <summary>
+            Finds the all cells with specified string value.
+            </summary>
+            <param name="findValue">Value to search.</param>
+            <param name="flags">Type of value to search.</param>
+            <param name="findOptions">Way to search.</param>
+            <returns>All found cells, or Null if value was not found.</returns>
         </member>
         <member name="M:Spire.Xls.Worksheet.FindAllNumber(System.Double,System.Boolean)">
             <summary>

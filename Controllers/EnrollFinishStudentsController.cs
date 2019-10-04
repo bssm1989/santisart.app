@@ -12,12 +12,12 @@ namespace santisart_app.Controllers
 {
     public class EnrollFinishStudentsController : Controller
     {
-        private santisar_Entities db = new santisar_Entities();
+        private santisartEntities2 db = new santisartEntities2();
 
         // GET: EnrollFinishStudents
         public ActionResult Index()
         {
-            var enrollFinishStudent = db.EnrollFinishStudent.Include(e => e.Students).Include(e => e.FinishType);
+            var enrollFinishStudent = db.EnrollFinishStudent.Include(e => e.Student).Include(e => e.FinishType);
             return View(enrollFinishStudent.ToList());
         }
 

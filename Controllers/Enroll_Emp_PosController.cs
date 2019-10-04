@@ -12,12 +12,12 @@ namespace santisart_app.Controllers
 {
     public class Enroll_Emp_PosController : Controller
     {
-        private santisar_Entities db = new santisar_Entities();
+        private santisartEntities2 db = new santisartEntities2();
 
         // GET: Enroll_Emp_Pos
         public ActionResult Index()
         {
-            var enroll_Emp_Pos = db.Enroll_Emp_Pos.Include(e => e.Employee).Include(e => e.Position);
+            var enroll_Emp_Pos = db.Enroll_Emp_Po.Include(e => e.Employee).Include(e => e.Position);
             return View(enroll_Emp_Pos.ToList());
         }
 
@@ -28,7 +28,7 @@ namespace santisart_app.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Enroll_Emp_Pos enroll_Emp_Pos = db.Enroll_Emp_Pos.Find(id);
+            Enroll_Emp_Pos enroll_Emp_Pos = db.Enroll_Emp_Po.Find(id);
             if (enroll_Emp_Pos == null)
             {
                 return HttpNotFound();
@@ -53,7 +53,7 @@ namespace santisart_app.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Enroll_Emp_Pos.Add(enroll_Emp_Pos);
+                db.Enroll_Emp_Po.Add(enroll_Emp_Pos);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -70,7 +70,7 @@ namespace santisart_app.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Enroll_Emp_Pos enroll_Emp_Pos = db.Enroll_Emp_Pos.Find(id);
+            Enroll_Emp_Pos enroll_Emp_Pos = db.Enroll_Emp_Po.Find(id);
             if (enroll_Emp_Pos == null)
             {
                 return HttpNotFound();
@@ -105,7 +105,7 @@ namespace santisart_app.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Enroll_Emp_Pos enroll_Emp_Pos = db.Enroll_Emp_Pos.Find(id);
+            Enroll_Emp_Pos enroll_Emp_Pos = db.Enroll_Emp_Po.Find(id);
             if (enroll_Emp_Pos == null)
             {
                 return HttpNotFound();
@@ -118,8 +118,8 @@ namespace santisart_app.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Enroll_Emp_Pos enroll_Emp_Pos = db.Enroll_Emp_Pos.Find(id);
-            db.Enroll_Emp_Pos.Remove(enroll_Emp_Pos);
+            Enroll_Emp_Pos enroll_Emp_Pos = db.Enroll_Emp_Po.Find(id);
+            db.Enroll_Emp_Po.Remove(enroll_Emp_Pos);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

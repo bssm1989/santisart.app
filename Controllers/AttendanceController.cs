@@ -9,7 +9,7 @@ namespace santisart_app.Controllers
 {
     public class AttendanceController : Controller
     {
-        santisar_Entities db = new santisar_Entities();
+        santisartEntities2 db = new santisartEntities2();
         // GET: Attendance
         public ActionResult Index(int? classId)
         {

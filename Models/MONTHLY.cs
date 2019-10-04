@@ -20,5 +20,6 @@ namespace santisart_app.Models
         public Nullable<int> Month_course { get; set; }
         public Nullable<bool> Month_status { get; set; }
         public Nullable<int> Month_yearindex { get; set; }
+        public Nullable<int> Month_Sort { get; set; }
     }
 }

@@ -13,7 +13,7 @@ namespace santisart_app.Controllers
     public class FoodPaidController : Controller
     {
         // GET: FoodPaid
-        santisar_Entities db = new santisar_Entities();
+        santisartEntities2 db = new santisartEntities2();
         
         
         public async Task<ActionResult> Index()
@@ -41,6 +41,7 @@ namespace santisart_app.Controllers
                                                    Student_lname = s.Student_lname,
                                                    Month_name = mo.Month_name,
                                                    Month_year = mo.Month_year,
+                                                   Month_yearindex=mo.Month_yearindex,
                                                    Month_course = mo.Month_course,
                                                    Class_id = cl.Class_id,
                                                    Status = cl.Status_class,

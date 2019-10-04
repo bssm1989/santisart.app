@@ -12,7 +12,7 @@ namespace santisart_app.Controllers
 {
     public class UserProfilesController : Controller
     {
-        private santisar_Entities db = new santisar_Entities();
+        private santisartEntities2 db = new santisartEntities2();
 
         // GET: UserProfiles
         public ActionResult Index()
@@ -33,7 +33,7 @@ namespace santisart_app.Controllers
         {
             if (ModelState.IsValid)
             {
-                using (santisar_Entities db2 = new santisar_Entities())
+                using (santisartEntities2 db2 = new santisartEntities2())
                 {
                     var obj = db2.Employee.Where(a => a.UserName.Equals(objUser.UserName) && a.Password.Equals(objUser.Password)).FirstOrDefault();
                     if (obj != null)

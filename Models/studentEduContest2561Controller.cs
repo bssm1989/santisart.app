@@ -11,7 +11,7 @@ namespace santisart_app.Models
 {
     public class studentEduContest2561Controller : Controller
     {
-        private santisar_Entities db = new santisar_Entities();
+        private santisartEntities2 db = new santisartEntities2();
 
         // GET: studentEduContest2561
         public ActionResult Index()
@@ -88,7 +88,7 @@ namespace santisart_app.Models
             return View(studentEduContest2561);
         }
 
-        // GET: studentEduContest2561/Delete/5
+        // GET: studentEduContest2561/Delete/5s
         public ActionResult Delete(int? id)
         {
             if (id == null)

@@ -12,10 +12,22 @@ namespace santisart_app.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class ENROLL_STUDENT_CLASS
+    public partial class Enroll_student_class
     {
-        public int STUDENT_ID { get; set; }
-        public int CLASS_ID { get; set; }
-        public int ENROL_STU_CLASS_ID { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Enroll_student_class()
+        {
+            this.EnrollStudentCouses = new HashSet<EnrollStudentCouse>();
+        }
+    
+        public Nullable<int> Student_id { get; set; }
+        public Nullable<int> Class_id { get; set; }
+        public int Enrol_stu_class_id { get; set; }
+        public Nullable<System.DateTime> Timestamp { get; set; }
+    
+        public virtual EnrollClass EnrollClass { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<EnrollStudentCouse> EnrollStudentCouses { get; set; }
+        public virtual Student Student { get; set; }
     }
 }

@@ -12,7 +12,7 @@ namespace santisart_app.App_Start
             bundles.Add(new StyleBundle("~/Bundles/css")
                 .Include("~/Content/css/bootstrap.min.css", new CssRewriteUrlTransformAbsolute())
                 .Include("~/Content/css/bootstrap-select.css")
-                .Include("~/Content/css/bootstrap-datepicker3.min.css")
+                //.Include("~/Content/css/bootstrap-datepicker3.min.css")
                 .Include("~/Content/css/font-awesome.min.css", new CssRewriteUrlTransformAbsolute())
                 .Include("~/Content/css/icheck/blue.min.css", new CssRewriteUrlTransformAbsolute())
                 .Include("~/Content/css/AdminLTE.css", new CssRewriteUrlTransformAbsolute())
@@ -184,6 +184,11 @@ namespace santisart_app.App_Start
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/vendors2/bootstrap/dist/css/bootstrap.min.css",
                       "~/Content/site.css"));
+            bundles.Add(new ScriptBundle("~/bundles/jqueryui").Include(
+            "~/Scripts/jquery-ui-{version}.js"));
+
+            bundles.Add(new StyleBundle("~/Content/themes/base/css").Include(
+                        "~/Content/themes/base/all.css"));
 
         }
     }

@@ -122,6 +122,18 @@
             This is typically from HttpContext.Current.Request or similar.
             </param>
         </member>
+        <member name="M:WebHelpers.Mvc5.HttpRequestExtensions.ClientIP(System.Web.HttpRequestBase)">
+            <summary>
+            Gets the IP address of the client sending the request. This method will return the originating
+            IP if specified by a proxy but makes no guarantee that this is the client's true IP address.
+            Since these headers can be spoofed, you are encouraged to perform additional validation if
+            you are using the IP in a sensitive context.
+            </summary>
+            <param name="httpRequest">
+            The incoming request to get the client's IP address from.
+            This is typically from HttpContext.Current.Request or similar.
+            </param>
+        </member>
         <member name="T:WebHelpers.Mvc5.JqGrid.Converters.LiteralNameConverter">
             <summary>
             Outputs the string value as a JavaScript function or variable without quotes in JSON.
@@ -920,6 +932,13 @@
             The version is the number of ticks since the last write time of the file.
             </summary>
             <param name="contentPath">The application absolute path to the file.</param>
+        </member>
+        <member name="M:WebHelpers.Mvc5.VersionExtensions.AddVersion(System.Web.Optimization.Bundle)">
+            <summary>
+            Adds a cache-busting query parameter to the URL of the bundle.
+            The version is the number of ticks since the last write time of the file.
+            </summary>
+            <param name="bundle">The bundle (e.g. StyleBundle) to add the version to.</param>
         </member>
         <member name="T:JetBrains.Annotations.CanBeNullAttribute">
             <summary>

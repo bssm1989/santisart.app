@@ -4179,6 +4179,16 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
+    <Content Include="Views\SurveyStudents\Create.cshtml" />
+    <Content Include="Views\SurveyStudents\Delete.cshtml" />
+    <Content Include="Views\SurveyStudents\Details.cshtml" />
+    <Content Include="Views\SurveyStudents\Edit.cshtml" />
+    <Content Include="Views\SurveyStudents\Index.cshtml" />
+    <Content Include="Views\enrolladdresses\Create.cshtml" />
+    <Content Include="Views\enrolladdresses\Delete.cshtml" />
+    <Content Include="Views\enrolladdresses\Details.cshtml" />
+    <Content Include="Views\enrolladdresses\Edit.cshtml" />
+    <Content Include="Views\enrolladdresses\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -4190,6 +4200,7 @@
     <Compile Include="Controllers\AttendanceController.cs" />
     <Compile Include="Controllers\eduContestController.cs" />
     <Compile Include="Controllers\EmployeesController.cs" />
+    <Compile Include="Controllers\enrolladdressesController.cs" />
     <Compile Include="Controllers\EnrollCousesController.cs" />
     <Compile Include="Controllers\EnrollEmpCousesController.cs" />
     <Compile Include="Controllers\EnrollFinishStudentsController.cs" />
@@ -4198,6 +4209,7 @@
     <Compile Include="Controllers\Enroll_Emp_PosController.cs" />
     <Compile Include="Controllers\FoodPaidController.cs" />
     <Compile Include="Controllers\studentController.cs" />
+    <Compile Include="Controllers\SurveyStudentsController.cs" />
     <Compile Include="Controllers\UserProfilesController.cs" />
     <Compile Include="Models\attdeanceBymonth.cs" />
     <Compile Include="Models\attendance.cs">
@@ -4224,7 +4236,13 @@
     <Compile Include="Models\Department.cs">
       <DependentUpon>santisartGaddy.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\District.cs">
+      <DependentUpon>santisartGaddy.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Employee.cs">
+      <DependentUpon>santisartGaddy.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\enrolladdress.cs">
       <DependentUpon>santisartGaddy.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\EnrollClass.cs">
@@ -4290,6 +4308,9 @@
     <Compile Include="Models\Position.cs">
       <DependentUpon>santisartGaddy.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Province.cs">
+      <DependentUpon>santisartGaddy.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\RoomSession.cs">
       <DependentUpon>santisartGaddy.tt</DependentUpon>
     </Compile>
@@ -4325,6 +4346,9 @@
     </Compile>
     <Compile Include="Models\studentEduContest2561Controller.cs" />
     <Compile Include="Models\Students_food.cs">
+      <DependentUpon>santisartGaddy.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Subdistrict.cs">
       <DependentUpon>santisartGaddy.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\UserProfile.cs">

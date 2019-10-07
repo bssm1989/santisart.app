@@ -12,12 +12,16 @@ namespace santisart_app.Controllers
 {
     public class UserProfilesController : Controller
     {
+<<<<<<< HEAD
         private santisartEntities2 db = new santisartEntities2();
+=======
+        private backupServerEntities1 db = new backupServerEntities1();
+>>>>>>> 81fd92b2750a4cd9bd85dec9ed1efdf1a5981156
 
         // GET: UserProfiles
         public ActionResult Index()
         {
-            return View(db.UserProfile.ToList());
+            return View(db.UserProfiles.ToList());
         }
         public ActionResult Login(string ReturnUrl)
         {
@@ -33,9 +37,13 @@ namespace santisart_app.Controllers
         {
             if (ModelState.IsValid)
             {
+<<<<<<< HEAD
                 using (santisartEntities2 db2 = new santisartEntities2())
+=======
+                using (backupServerEntities1 db2 = new backupServerEntities1())
+>>>>>>> 81fd92b2750a4cd9bd85dec9ed1efdf1a5981156
                 {
-                    var obj = db2.Employee.Where(a => a.UserName.Equals(objUser.UserName) && a.Password.Equals(objUser.Password)).FirstOrDefault();
+                    var obj = db2.Employees.Where(a => a.UserName.Equals(objUser.UserName) && a.Password.Equals(objUser.Password)).FirstOrDefault();
                     if (obj != null)
                     {
                         Session["UserID"] = obj.EmpId.ToString();
@@ -90,7 +98,7 @@ namespace santisart_app.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            UserProfile userProfile = db.UserProfile.Find(id);
+            UserProfile userProfile = db.UserProfiles.Find(id);
             if (userProfile == null)
             {
                 return HttpNotFound();
@@ -113,7 +121,7 @@ namespace santisart_app.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.UserProfile.Add(userProfile);
+                db.UserProfiles.Add(userProfile);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -128,7 +136,7 @@ namespace santisart_app.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            UserProfile userProfile = db.UserProfile.Find(id);
+            UserProfile userProfile = db.UserProfiles.Find(id);
             if (userProfile == null)
             {
                 return HttpNotFound();
@@ -159,7 +167,7 @@ namespace santisart_app.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            UserProfile userProfile = db.UserProfile.Find(id);
+            UserProfile userProfile = db.UserProfiles.Find(id);
             if (userProfile == null)
             {
                 return HttpNotFound();
@@ -172,8 +180,8 @@ namespace santisart_app.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            UserProfile userProfile = db.UserProfile.Find(id);
-            db.UserProfile.Remove(userProfile);
+            UserProfile userProfile = db.UserProfiles.Find(id);
+            db.UserProfiles.Remove(userProfile);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

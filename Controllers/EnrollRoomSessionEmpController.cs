@@ -12,7 +12,11 @@ namespace santisart_app.Controllers
 {
     public class EnrollRoomSessionEmpController : Controller
     {
+<<<<<<< HEAD
         private santisartEntities2 db = new santisartEntities2();
+=======
+        private backupServerEntities1 db = new backupServerEntities1();
+>>>>>>> 81fd92b2750a4cd9bd85dec9ed1efdf1a5981156
 
         // GET: EnrollRoomSessionEmp
         public ActionResult Index()
@@ -40,14 +44,14 @@ namespace santisart_app.Controllers
         public ActionResult Create()
         {
             List<object> newList = new List<object>();
-            foreach (var member in db.Employee)
+            foreach (var member in db.Employees)
                 newList.Add(new
                 {
                     Id = member.EmpId,
                     Name = member.EmpName + " " + member.EmpLname
                 });
             ViewBag.userid = new SelectList(newList, "Id", "Name");
-            ViewBag.RoomSessionId = new SelectList(db.RoomSession, "RoomSessionId", "RoomName");
+            ViewBag.RoomSessionId = new SelectList(db.RoomSessions, "RoomSessionId", "RoomName");
             return View();
         }
 
@@ -66,8 +70,8 @@ namespace santisart_app.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.userid = new SelectList(db.Employee, "EmpId", "EmpTitle", enroll_RoomSession_Emp.userid);
-            ViewBag.RoomSessionId = new SelectList(db.RoomSession, "RoomSessionId", "RoomName", enroll_RoomSession_Emp.RoomSessionId);
+            ViewBag.userid = new SelectList(db.Employees, "EmpId", "EmpTitle", enroll_RoomSession_Emp.userid);
+            ViewBag.RoomSessionId = new SelectList(db.RoomSessions, "RoomSessionId", "RoomName", enroll_RoomSession_Emp.RoomSessionId);
             return View(enroll_RoomSession_Emp);
         }
 
@@ -84,14 +88,14 @@ namespace santisart_app.Controllers
                 return HttpNotFound();
             }
             List<object> newList = new List<object>();
-            foreach (var member in db.Employee)
+            foreach (var member in db.Employees)
                 newList.Add(new
                 {
                     Id = member.EmpId,
                     Name = member.EmpName + " " + member.EmpLname
                 });
             ViewBag.userid = new SelectList(newList, "Id", "Name", enroll_RoomSession_Emp.userid);
-            ViewBag.RoomSessionId = new SelectList(db.RoomSession, "RoomSessionId", "RoomName", enroll_RoomSession_Emp.RoomSessionId);
+            ViewBag.RoomSessionId = new SelectList(db.RoomSessions, "RoomSessionId", "RoomName", enroll_RoomSession_Emp.RoomSessionId);
             return View(enroll_RoomSession_Emp);
         }
 
@@ -109,14 +113,14 @@ namespace santisart_app.Controllers
                 return RedirectToAction("Index");
             }
             List<object> newList = new List<object>();
-            foreach (var member in db.Employee)
+            foreach (var member in db.Employees)
                 newList.Add(new
                 {
                     Id = member.EmpId,
                     Name = member.EmpName + " " + member.EmpLname
                 });
             ViewBag.userid = new SelectList(newList, "Id", "Name", enroll_RoomSession_Emp.userid);
-            ViewBag.RoomSessionId = new SelectList(db.RoomSession, "RoomSessionId", "RoomName", enroll_RoomSession_Emp.RoomSessionId);
+            ViewBag.RoomSessionId = new SelectList(db.RoomSessions, "RoomSessionId", "RoomName", enroll_RoomSession_Emp.RoomSessionId);
             return View(enroll_RoomSession_Emp);
         }
 

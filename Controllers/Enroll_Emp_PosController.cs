@@ -12,7 +12,11 @@ namespace santisart_app.Controllers
 {
     public class Enroll_Emp_PosController : Controller
     {
+<<<<<<< HEAD
         private santisartEntities2 db = new santisartEntities2();
+=======
+        private backupServerEntities1 db = new backupServerEntities1();
+>>>>>>> 81fd92b2750a4cd9bd85dec9ed1efdf1a5981156
 
         // GET: Enroll_Emp_Pos
         public ActionResult Index()
@@ -39,8 +43,8 @@ namespace santisart_app.Controllers
         // GET: Enroll_Emp_Pos/Create
         public ActionResult Create()
         {
-            ViewBag.Employee_id = new SelectList(db.Employee, "EmpId", "EmpTitle");
-            ViewBag.Position_id = new SelectList(db.Position, "PosId", "PosName");
+            ViewBag.Employee_id = new SelectList(db.Employees, "EmpId", "EmpTitle");
+            ViewBag.Position_id = new SelectList(db.Positions, "PosId", "PosName");
             return View();
         }
 
@@ -58,8 +62,8 @@ namespace santisart_app.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.Employee_id = new SelectList(db.Employee, "EmpId", "EmpTitle", enroll_Emp_Pos.Employee_id);
-            ViewBag.Position_id = new SelectList(db.Position, "PosId", "PosName", enroll_Emp_Pos.Position_id);
+            ViewBag.Employee_id = new SelectList(db.Employees, "EmpId", "EmpTitle", enroll_Emp_Pos.Employee_id);
+            ViewBag.Position_id = new SelectList(db.Positions, "PosId", "PosName", enroll_Emp_Pos.Position_id);
             return View(enroll_Emp_Pos);
         }
 
@@ -75,8 +79,8 @@ namespace santisart_app.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.Employee_id = new SelectList(db.Employee, "EmpId", "EmpTitle", enroll_Emp_Pos.Employee_id);
-            ViewBag.Position_id = new SelectList(db.Position, "PosId", "PosName", enroll_Emp_Pos.Position_id);
+            ViewBag.Employee_id = new SelectList(db.Employees, "EmpId", "EmpTitle", enroll_Emp_Pos.Employee_id);
+            ViewBag.Position_id = new SelectList(db.Positions, "PosId", "PosName", enroll_Emp_Pos.Position_id);
             return View(enroll_Emp_Pos);
         }
 
@@ -93,8 +97,8 @@ namespace santisart_app.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.Employee_id = new SelectList(db.Employee, "EmpId", "EmpTitle", enroll_Emp_Pos.Employee_id);
-            ViewBag.Position_id = new SelectList(db.Position, "PosId", "PosName", enroll_Emp_Pos.Position_id);
+            ViewBag.Employee_id = new SelectList(db.Employees, "EmpId", "EmpTitle", enroll_Emp_Pos.Employee_id);
+            ViewBag.Position_id = new SelectList(db.Positions, "PosId", "PosName", enroll_Emp_Pos.Position_id);
             return View(enroll_Emp_Pos);
         }
 

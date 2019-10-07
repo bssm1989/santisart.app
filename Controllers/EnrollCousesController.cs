@@ -12,12 +12,16 @@ namespace santisart_app.Controllers
 {
     public class EnrollCousesController : Controller
     {
+<<<<<<< HEAD
         private santisartEntities2 db = new santisartEntities2();
+=======
+        private backupServerEntities1 db = new backupServerEntities1();
+>>>>>>> 81fd92b2750a4cd9bd85dec9ed1efdf1a5981156
 
         // GET: EnrollCouses
         public ActionResult Index()
         {
-            var enrollCouse = db.EnrollCouse
+            var enrollCouse = db.EnrollCouses
                 .Include(e => e.ClassInSchool)
                 .Include(e => e.Course)
                 .Include(e => e.Department)
@@ -28,7 +32,7 @@ namespace santisart_app.Controllers
         }
         public ActionResult EditList()
         {
-            var enrollCouse = db.EnrollCouse
+            var enrollCouse = db.EnrollCouses
                 .Where(xx=>xx.ClassInSchool.ClassShortName=="ป.1")
                 .Include(e => e.ClassInSchool)
                 .Include(e => e.Course)
@@ -37,9 +41,9 @@ namespace santisart_app.Controllers
                 .ThenBy(x => x.IndexSort)
                 .ThenBy(x => x.CouseId);
           
-            ViewBag.ClassId = new SelectList(db.ClassInSchool, "ClassID", "ClassShortName");
-            ViewBag.CouseId = new SelectList(db.Course, "CourseId", "CourseName");
-            ViewBag.DepartId = new SelectList(db.Department, "Depart_Id", "DepartName");
+            ViewBag.ClassId = new SelectList(db.ClassInSchools, "ClassID", "ClassShortName");
+            ViewBag.CouseId = new SelectList(db.Courses, "CourseId", "CourseName");
+            ViewBag.DepartId = new SelectList(db.Departments, "Depart_Id", "DepartName");
 
             return View(enrollCouse.ToList());
         }
@@ -51,7 +55,7 @@ namespace santisart_app.Controllers
                 //EnrollCouse EditListEdit = db.EnrollCouse.Find(item.EnrollCouseID);
                 if (ModelState.IsValid)
                 {
-                    EnrollCouse EditListEdit = db.EnrollCouse.Find(item.EnrollCouseID);
+                    EnrollCouse EditListEdit = db.EnrollCouses.Find(item.EnrollCouseID);
                     EditListEdit.EnrollCouseID = item.EnrollCouseID;
                     EditListEdit.ClassId= item.ClassId;
                     EditListEdit.CouseTxtId = item.CouseTxtId;
@@ -75,7 +79,7 @@ namespace santisart_app.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            EnrollCouse enrollCouse = db.EnrollCouse.Find(id);
+            EnrollCouse enrollCouse = db.EnrollCouses.Find(id);
             if (enrollCouse == null)
             {
                 return HttpNotFound();
@@ -86,9 +90,9 @@ namespace santisart_app.Controllers
         // GET: EnrollCouses/Create
         public ActionResult Create()
         {
-            ViewBag.ClassId = new SelectList(db.ClassInSchool, "ClassID", "ClassShortName");
-            ViewBag.CouseId = new SelectList(db.Course, "CourseId", "CourseName");
-            ViewBag.DepartId = new SelectList(db.Department, "Depart_Id", "DepartName");
+            ViewBag.ClassId = new SelectList(db.ClassInSchools, "ClassID", "ClassShortName");
+            ViewBag.CouseId = new SelectList(db.Courses, "CourseId", "CourseName");
+            ViewBag.DepartId = new SelectList(db.Departments, "Depart_Id", "DepartName");
             return View();
         }
 
@@ -101,14 +105,14 @@ namespace santisart_app.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.EnrollCouse.Add(enrollCouse);
+                db.EnrollCouses.Add(enrollCouse);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.ClassId = new SelectList(db.ClassInSchool, "ClassID", "ClassShortName", enrollCouse.ClassId);
-            ViewBag.CouseId = new SelectList(db.Course, "CourseId", "CourseName", enrollCouse.CouseId);
-            ViewBag.DepartId = new SelectList(db.Department, "Depart_Id", "DepartName", enrollCouse.DepartId);
+            ViewBag.ClassId = new SelectList(db.ClassInSchools, "ClassID", "ClassShortName", enrollCouse.ClassId);
+            ViewBag.CouseId = new SelectList(db.Courses, "CourseId", "CourseName", enrollCouse.CouseId);
+            ViewBag.DepartId = new SelectList(db.Departments, "Depart_Id", "DepartName", enrollCouse.DepartId);
             return View(enrollCouse);
         }
 
@@ -119,14 +123,14 @@ namespace santisart_app.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            EnrollCouse enrollCouse = db.EnrollCouse.Find(id);
+            EnrollCouse enrollCouse = db.EnrollCouses.Find(id);
             if (enrollCouse == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.ClassId = new SelectList(db.ClassInSchool, "ClassID", "ClassShortName", enrollCouse.ClassId);
-            ViewBag.CouseId = new SelectList(db.Course, "CourseId", "CourseName", enrollCouse.CouseId);
-            ViewBag.DepartId = new SelectList(db.Department, "Depart_Id", "DepartName", enrollCouse.DepartId);
+            ViewBag.ClassId = new SelectList(db.ClassInSchools, "ClassID", "ClassShortName", enrollCouse.ClassId);
+            ViewBag.CouseId = new SelectList(db.Courses, "CourseId", "CourseName", enrollCouse.CouseId);
+            ViewBag.DepartId = new SelectList(db.Departments, "Depart_Id", "DepartName", enrollCouse.DepartId);
             return View(enrollCouse);
         }
 
@@ -143,9 +147,9 @@ namespace santisart_app.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.ClassId = new SelectList(db.ClassInSchool, "ClassID", "ClassShortName", enrollCouse.ClassId);
-            ViewBag.CouseId = new SelectList(db.Course, "CourseId", "CourseName", enrollCouse.CouseId);
-            ViewBag.DepartId = new SelectList(db.Department, "Depart_Id", "DepartName", enrollCouse.DepartId);
+            ViewBag.ClassId = new SelectList(db.ClassInSchools, "ClassID", "ClassShortName", enrollCouse.ClassId);
+            ViewBag.CouseId = new SelectList(db.Courses, "CourseId", "CourseName", enrollCouse.CouseId);
+            ViewBag.DepartId = new SelectList(db.Departments, "Depart_Id", "DepartName", enrollCouse.DepartId);
             return View(enrollCouse);
         }
 
@@ -156,7 +160,7 @@ namespace santisart_app.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            EnrollCouse enrollCouse = db.EnrollCouse.Find(id);
+            EnrollCouse enrollCouse = db.EnrollCouses.Find(id);
             if (enrollCouse == null)
             {
                 return HttpNotFound();
@@ -169,8 +173,8 @@ namespace santisart_app.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            EnrollCouse enrollCouse = db.EnrollCouse.Find(id);
-            db.EnrollCouse.Remove(enrollCouse);
+            EnrollCouse enrollCouse = db.EnrollCouses.Find(id);
+            db.EnrollCouses.Remove(enrollCouse);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
